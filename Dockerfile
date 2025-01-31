@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive TZ=posixrules
 ADD AutomaticCleanup /etc/apt/apt.conf.d/99AutomaticCleanup
 
 # Install what we need from Ubuntu
-RUN apt-get update && \
+RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y curl xymon apache2 ssmtp mailutils rrdtool ntpdate && \
     apt-get clean autoclean && \
     apt-get autoremove --yes && \
