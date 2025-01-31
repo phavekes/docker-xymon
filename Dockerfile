@@ -30,6 +30,27 @@ RUN a2enmod rewrite authz_groupfile cgi; \
      tar -C /etc/xymon -czf /root/xymon-config.tgz . ; \
      tar -C /var/lib/xymon -czf /root/xymon-data.tgz .
 
+# Redirect Xymon logs to stdout, so they can be vieuwed with `docker logs`
+
+RUN mkdir -p /var/log/xymon/ \
+  && ln -sf /dev/stderr /var/log/xymon/acknowledge.log \
+  && ln -sf /dev/stderr /var/log/xymon/alert.log \
+  && ln -sf /dev/stderr /var/log/xymon/clientdata.log \
+  && ln -sf /dev/stderr /var/log/xymon/combostatus.log \
+  && ln -sf /dev/stderr /var/log/xymon/dynmic-hosts.log \
+  && ln -sf /dev/stderr /var/log/xymon/history.log \
+  && ln -sf /dev/stderr /var/log/xymon/hostdata.log \
+  && ln -sf /dev/stderr /var/log/xymon/notifications.log \
+  && ln -sf /dev/stderr /var/log/xymon/rrd-data.log \
+  && ln -sf /dev/stderr /var/log/xymon/rrd-status.log \
+  && ln -sf /dev/stderr /var/log/xymon/xymonclient.log \
+  && ln -sf /dev/stderr /var/log/xymon/xymond.log \
+  && ln -sf /dev/stderr /var/log/xymon/xymongen.log \
+  && ln -sf /dev/stderr /var/log/xymon/xymonlaunch.log \
+  && ln -sf /dev/stderr /var/log/xymon/xymonnet.log \
+  && ln -sf /dev/stderr /var/log/xymon/xymonnetagain.log \
+  && chown -R xymon /var/log/xymon
+
 VOLUME /etc/xymon /var/lib/xymon
 EXPOSE 80 1984
 
