@@ -11,20 +11,22 @@ Quick Start
 or use docker-compose with
 
 ```
-xymon:
-  image: deweysasser/xymon
-  ports:
-    - 80:80
-    - 1984:1984
-  volumes:
-    - xymon-config:/etc/xymon
-    - xymon-data:/var/lib/xymon
-  environment:
-    SSMTP_mailhub: mail.example.com
-    SSMTP_AuthUser: user
-    SSMTP_AuthPass: password
-    SSMTP_AuthMethod: LOGIN
-    SSMTP_UseTLS: "Yes"
+---
+services:
+  xymon:
+    image: deweysasser/xymon
+    ports:
+      - 80:80
+      - 1984:1984
+    volumes:
+      - xymon-config:/etc/xymon
+      - xymon-data:/var/lib/xymon
+    environment:
+      SSMTP_mailhub: mail.example.com
+      SSMTP_AuthUser: user
+      SSMTP_AuthPass: password
+      SSMTP_AuthMethod: LOGIN
+      SSMTP_UseTLS: "Yes"
 ```
 
 Interface
