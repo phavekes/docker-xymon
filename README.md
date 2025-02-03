@@ -22,7 +22,7 @@ services:
       - xymon-config:/etc/xymon
       - xymon-data:/var/lib/xymon
     environment:
-      SSMTP_mailhub: mail.example.com
+      SSMTP_mailhub: "mail.example.com:port"
       SSMTP_AuthUser: user
       SSMTP_AuthPass: password
       SSMTP_AuthMethod: LOGIN
