@@ -1,5 +1,4 @@
-Library of make recipes
-=======================
+# Library of make recipes
 
 This project contains a library of includable makefiles that define
 recipes for building/manipulating various things, including docker,
@@ -17,10 +16,8 @@ Currently includes
 
 * aws-ecr.mk -- push built docker images to AWS ECR
 
-
-Base Repo
-=========
+## Base Repo
 
 Preconfigured git ignores and attributes.
 
-Additional funcitonality in https://github.com/deweysasser/makelib
+Additional funcitonality in [deweysasser/makelib](https://github.com/deweysasser/makelib)

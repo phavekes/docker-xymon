@@ -1,16 +1,16 @@
-docker-xymon
-============
+# docker-xymon
 
 Dockerization of the Xymon monitoring system on an Ubuntu base
 
-Quick Start
-===========
+## Quick Start
 
-    docker run -d -p 80:80 -p 1984:1984 -v /etc/xymon:/etc/xymon -v /var/lib/xymon:/var/lib/xymon --name xymon deweysasser/xymon
+``` bash
+docker run -d -p 80:80 -p 1984:1984 -v /etc/xymon:/etc/xymon -v /var/lib/xymon:/var/lib/xymon --name xymon deweysasser/xymon
+```
 
 or use docker-compose with
 
-```
+```yaml
 ---
 services:
   xymon:
@@ -29,11 +29,7 @@ services:
       SSMTP_UseTLS: "Yes"
 ```
 
-Interface
-=========
-
-Ports
------
+## Ports
 
 * 80 -- Web server
 * 1984 -- Xymon/bb client reporting port
@@ -46,8 +42,7 @@ client
 
 Port 1984 should *NOT* be exposed to public (Internet facing) traffic.
 
-Sending Mail
-------------
+## Sending Mail
 
 Any environment variables with the prefix `SSMTP_` have the prefix
 stripped and are otherwise copied verbatim into
@@ -75,27 +70,22 @@ See the documentation for
 alerts](http://xymon.sourceforge.net/xymon/help/xymon-alerts.html) for
 more details.
 
-Volumes
--------
+## Volumes
 
 * /etc/xymon -- all xymon configuration data
 * /var/lib/xymon -- xymon data (monitoring state)
 
-Timezone
---------
+## Timezone
 
 By default the container will use the `posixrules` TZ rule set. If
 you'd like to override this, set the environment variable 'TZ',
 e.g. `docker run -d -e TZ=America/New_York`
 
-
-Known Issues
-============
+## Known Issues
 
 * Password protection on cgi directories is currently disabled
 
-Maintainer
-==========
+## Maintainer
 
 Please submit all issues/suggestions/bugs via
-https://github.com/deweysasser/docker-xymon
+[Github docker-xymon](https://github.com/deweysasser/docker-xymon)
