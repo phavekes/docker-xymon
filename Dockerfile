@@ -48,6 +48,8 @@ RUN mkdir -p /var/log/xymon/ \
   && ln -sf /dev/stderr /var/log/xymon/xymongen.log \
   && ln -sf /dev/stderr /var/log/xymon/xymonlaunch.log \
   && ln -sf /dev/stderr /var/log/xymon/xymonnet.log \
+  && ln -sf /dev/stderr /var/log/apache2/access.log \
+  && ln -sf /dev/stderr /var/log/apache2/error.log \
   && ln -sf /dev/stderr /var/log/xymon/xymonnetagain.log \
   && chown -R xymon /var/log/xymon
 
